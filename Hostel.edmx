@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="hostelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Block">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Hostel_id" Type="int" Nullable="false" />
+          <Property Name="name" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Gender">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Hostel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="30" Nullable="false" />
+          <Property Name="Init" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="gender" Type="nchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Reciept">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Category" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="Ticket_number" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Payer" Type="int" Nullable="false" />
+          <Property Name="Amount" Type="int" Nullable="false" />
+          <Property Name="Ticket_created" Type="datetime" Nullable="false" />
+          <Property Name="Item" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="Level" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="Payment_date" Type="datetime" />
+          <Property Name="Payment_state" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Payment_gateway" Type="varchar" MaxLength="14" />
+          <Property Name="Response_card_Number" Type="varchar" MaxLength="4" />
+          <Property Name="Response_Description" Type="varchar" MaxLength="30" />
+          <Property Name="Response_code" Type="varchar" MaxLength="10" />
+          <Property Name="Session" Type="varchar" MaxLength="4" />
+        </EntityType>
+        <EntityType Name="Room">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Number" Type="nchar" MaxLength="4" Nullable="false" />
+          <Property Name="Block_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Space">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Corner" Type="nchar" MaxLength="2" Nullable="false" />
+          <Property Name="Room_id" Type="int" Nullable="false" />
+          <Property Name="Student_id" Type="int" />
+          <Property Name="Cleared" Type="bit" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Firstname" Type="varchar" MaxLength="18" Nullable="false" />
+          <Property Name="Lastname" Type="varchar" MaxLength="18" Nullable="false" />
+          <Property Name="Phone" Type="nchar" MaxLength="11" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Address" Type="nchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Type" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Mat.No" Type="nchar" MaxLength="10" />
+          <Property Name="Staff_id" Type="nchar" MaxLength="10" />
+          <Property Name="Gender" Type="int" Nullable="false" />
+          <Property Name="Apply" Type="bit" />
+        </EntityType>
+        <EntityContainer Name="hostelModelStoreContainer">
+          <EntitySet Name="Block" EntityType="Self.Block" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Hostel" EntityType="Self.Hostel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reciept" EntityType="Self.Reciept" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Room" EntityType="Self.Room" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Space" EntityType="Self.Space" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="hostelModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Block">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Hostel_id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Gender">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Hostel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Init" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="gender" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Room">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Number" Type="String" MaxLength="4" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Block_id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Space">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Corner" Type="String" MaxLength="2" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Room_id" Type="Int32" Nullable="false" />
+          <Property Name="Student_id" Type="Int32" />
+          <Property Name="Cleared" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Firstname" Type="String" MaxLength="18" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Lastname" Type="String" MaxLength="18" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="11" FixedLength="true" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Mat_No" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Staff_id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Gender" Type="Int32" Nullable="false" />
+          <Property Name="Apply" Type="Boolean" />
+        </EntityType>
+        <EntityContainer Name="hostelEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Blocks" EntityType="Self.Block" />
+          <EntitySet Name="Genders" EntityType="Self.Gender" />
+          <EntitySet Name="Hostels" EntityType="Self.Hostel" />
+          <EntitySet Name="Rooms" EntityType="Self.Room" />
+          <EntitySet Name="Spaces" EntityType="Self.Space" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="Reciept" EntityType="hostelModel.Reciept" />
+        </EntityContainer>
+        <EntityType Name="Reciept">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Category" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="Ticket_number" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Payer" Type="Int32" Nullable="false" />
+          <Property Name="Amount" Type="Int32" Nullable="false" />
+          <Property Name="Ticket_created" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Item" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="Level" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="Payment_date" Type="DateTime" Precision="3" />
+          <Property Name="Payment_state" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Payment_gateway" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="Response_card_Number" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="Response_Description" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Response_code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Session" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="hostelModelStoreContainer" CdmEntityContainer="hostelEntities2">
+          <EntitySetMapping Name="Blocks">
+            <EntityTypeMapping TypeName="hostelModel.Block">
+              <MappingFragment StoreEntitySet="Block">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Hostel_id" ColumnName="Hostel_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Genders">
+            <EntityTypeMapping TypeName="hostelModel.Gender">
+              <MappingFragment StoreEntitySet="Gender">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Hostels">
+            <EntityTypeMapping TypeName="hostelModel.Hostel">
+              <MappingFragment StoreEntitySet="Hostel">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Init" ColumnName="Init" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rooms">
+            <EntityTypeMapping TypeName="hostelModel.Room">
+              <MappingFragment StoreEntitySet="Room">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Block_id" ColumnName="Block_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Spaces">
+            <EntityTypeMapping TypeName="hostelModel.Space">
+              <MappingFragment StoreEntitySet="Space">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Corner" ColumnName="Corner" />
+                <ScalarProperty Name="Room_id" ColumnName="Room_id" />
+                <ScalarProperty Name="Student_id" ColumnName="Student_id" />
+                <ScalarProperty Name="Cleared" ColumnName="Cleared" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="hostelModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Apply" ColumnName="Apply" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Mat_No" ColumnName="Mat.No" />
+                <ScalarProperty Name="Staff_id" ColumnName="Staff_id" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reciept">
+            <EntityTypeMapping TypeName="hostelModel.Reciept">
+              <MappingFragment StoreEntitySet="Reciept">
+                <ScalarProperty Name="Session" ColumnName="Session" />
+                <ScalarProperty Name="Response_code" ColumnName="Response_code" />
+                <ScalarProperty Name="Response_Description" ColumnName="Response_Description" />
+                <ScalarProperty Name="Response_card_Number" ColumnName="Response_card_Number" />
+                <ScalarProperty Name="Payment_gateway" ColumnName="Payment_gateway" />
+                <ScalarProperty Name="Payment_state" ColumnName="Payment_state" />
+                <ScalarProperty Name="Payment_date" ColumnName="Payment_date" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+                <ScalarProperty Name="Item" ColumnName="Item" />
+                <ScalarProperty Name="Ticket_created" ColumnName="Ticket_created" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Payer" ColumnName="Payer" />
+                <ScalarProperty Name="Ticket_number" ColumnName="Ticket_number" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

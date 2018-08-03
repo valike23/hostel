@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="hostelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Block">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Hostel_id" Type="int" Nullable="false" />
+    <Property Name="name" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Gender">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Hostel">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nchar" MaxLength="30" Nullable="false" />
+    <Property Name="Init" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="gender" Type="nchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Reciept">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Category" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="Ticket_number" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Payer" Type="int" Nullable="false" />
+    <Property Name="Amount" Type="int" Nullable="false" />
+    <Property Name="Ticket_created" Type="datetime" Nullable="false" />
+    <Property Name="Item" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="Level" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="Payment_date" Type="datetime" />
+    <Property Name="Payment_state" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Payment_gateway" Type="varchar" MaxLength="14" />
+    <Property Name="Response_card_Number" Type="varchar" MaxLength="4" />
+    <Property Name="Response_Description" Type="varchar" MaxLength="30" />
+    <Property Name="Response_code" Type="varchar" MaxLength="10" />
+    <Property Name="Session" Type="varchar" MaxLength="4" />
+  </EntityType>
+  <EntityType Name="Room">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Number" Type="nchar" MaxLength="4" Nullable="false" />
+    <Property Name="Block_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Space">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Corner" Type="nchar" MaxLength="2" Nullable="false" />
+    <Property Name="Room_id" Type="int" Nullable="false" />
+    <Property Name="Student_id" Type="int" />
+    <Property Name="Cleared" Type="bit" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Firstname" Type="varchar" MaxLength="18" Nullable="false" />
+    <Property Name="Lastname" Type="varchar" MaxLength="18" Nullable="false" />
+    <Property Name="Phone" Type="nchar" MaxLength="11" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Address" Type="nchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Type" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Mat.No" Type="nchar" MaxLength="10" />
+    <Property Name="Staff_id" Type="nchar" MaxLength="10" />
+    <Property Name="Gender" Type="int" Nullable="false" />
+    <Property Name="Apply" Type="bit" />
+  </EntityType>
+  <EntityContainer Name="hostelModelStoreContainer">
+    <EntitySet Name="Block" EntityType="Self.Block" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Hostel" EntityType="Self.Hostel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Reciept" EntityType="Self.Reciept" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Room" EntityType="Self.Room" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Space" EntityType="Self.Space" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

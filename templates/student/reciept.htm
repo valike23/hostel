@@ -1,0 +1,38 @@
+﻿<div >
+   
+    <a>/Dashboard</a><a>/reciept</a><br/><br/>
+   
+        <button type="button" ui-sref="student.addPayment" class="btn btn-default btn-sm"><i class="pe-7s-plus w3-text-green"></i> Add Current Session Payment Ticket</button>
+        <button type="button" class="btn btn-default btn-sm"><i class="pe-7s-plus w3-text-green"></i> Add Previous Session Payment Ticket</button>
+
+    
+    <h2>Emmanuel Valentine : Payment</h2>
+    <br/>
+    <br/>
+    <table class="w3-table w3-striped w3-bordered table-hover">
+        <tr>
+            <th>Payment_id</th>
+            <th>Creation_date</th>
+            <th>Payment_date</th>
+            <th>Category</th>
+            <th>Item</th>
+            <th>Amount</th>
+            <th>Session</th>
+            <th>Status</th>
+        </tr>
+        <tr ng-repeat="tick in tickets">
+            <td class="w3-text-deep-purple"><a ng-click="ticket(tick)">{{tick.Ticket_number}}</a></td>
+            
+            <td>{{tick.Ticket_created}}</td>
+            <td>{{tick.Payment_date}}</td>
+          <td>{{tick.Category}}</td>
+            <td>{{tick.Item}}</td>
+            <td>{{tick.Amount}}.00</td>
+            <td>{{tick.Session}}</td>
+            <td>{{tick.Payment_state}}</td>
+            
+        </tr>
+     
+        
+    </table> 
+</div>

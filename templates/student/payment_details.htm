@@ -1,0 +1,31 @@
+﻿<div>
+    <button ng-show="tick.test" class="btn btn-default btn-sm"><i class="fa fa-money"></i> pay with Remita</button>
+    <button ng-show="tick.test" class="btn btn-default btn-sm"><i class="fa fa-id-card"></i> pay with WebPay</button>
+    <button class="btn btn-default btn-sm"><i class="fa fa-file-pdf-o"></i> download payment slip</button>
+    <br/>
+    <br/>
+    <h2>Emmanuel Valentine : Online Ticket Payment<br/> {{tick.Ticket_number}}</h2>
+    <div style="font-size: 14px; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
+        <p>Payment Category:<span style="margin-left: 200px">{{tick.Category}}</span></p>
+        <p>Payment Item: <span style="margin-left: 220px">{{tick.Item}}</span></p>
+        <p>Payment Level: <span style="margin-left: 219px">{{tick.Level}}</span></p>
+        <p>Payment Session: <span style="margin-left: 203px">{{tick.Session}}</span></p>
+        <p>Payment Status: <span style="margin-left: 210px">{{tick.Payment_state}}</span></p>
+        <p>Ticket Created Date: <span style="margin-left: 186px">{{tick.Ticket_created}}</span></p>
+        <p>Payment Date: <span style="margin-left: 218px">{{tick.Payment_date}}</span></p>
+        <p>Amount Authorized: <span style="margin-left: 185px">{{tick.Amount}}</span></p>
+        <p>Activation Code: <span style="margin-left: 205px"></span></p>
+        <p>Response Amount Approved: <span style="margin-left: 138px">{{tick.Amount}}</span></p>
+        <p>Response Code: <span style="margin-left: 210px">{{tick.Response_code}}</span></p>
+        <p>Response Description: <span style="margin-left: 175px">{{tick.Response_Description}}</span></p>
+        <p>Response Payment Reference: <span style="margin-left: 130px"></span></p>
+        <p>Response Card Number: <span style="margin-left: 164px">{{Response_card_Number}}</span></p>
+        <p>Payment Gateway: <span style="margin-left: 195px">{{tick.Payment_gateway}}</span></p>
+        <p>Current Session Payment: <span style="margin-left: 155px">yes</span></p>
+        <p>Staff Rebate Payment: <span style="margin-left: 174px">no</span></p>
+        <p>Rebate: <span style="margin-left: 252px">0.0</span></p>
+        
+        
+    </div>
+</div>
+

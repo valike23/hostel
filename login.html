@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html ng-app="hostel">
+<head>
+    <title>UNIBEN Hostel Allocation</title>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/w3.css" rel="stylesheet" />
+	<meta charset="utf-8" />
+</head>
+<body>
+    <nav class="navbar navbar-default w3-purple ">
+        <div class="container-fluid">
+           <div>
+           
+                <a class="navbar-brand" href="#">UNIBEN</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li ><a href="#">Application<span class="sr-only">(current)</span></a></li>
+                    <li><a href="#">Enquiry</a></li>
+                    
+                </ul>
+               
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Login</a></li>
+                  
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <!-- a well would be used to wrap the content of the form -->
+    <div class="well well-lg container" ng-controller="loginCtrl">
+       <h1>Login</h1>
+        <form>
+            <div class="row" style="margin-bottom:20px">
+             <div class="col-sm-2"><label>User name or Id</label></div>   
+              <div class="col-sm-10"> <input class="w3-input w3-border w3-round" type="text" ng-model="user"/>   </div>  
+            </div>
+            <div class="row">
+                <div class="col-sm-2"><label> Password </label></div>
+                <div class="col-sm-10"> <input class="w3-input w3-border w3-round" ng-model="password"  type="password"/>   </div>
+            </div>
+            <p style="margin-left: 190px" class="w3-text-red">Note!: Usernames, Id and Password are case-sensitive</p>
+            <button class="btn btn-primary" ng-click="login()">Login</button>
+        </form>
+<!-- end of form -->
+        <!-- a little bit of information -->
+        <p style="font-size:13.5px; margin-top:45px;">Don't forget to logout or exit your browser when you're done. If you are having trouble logging in,make sure to enable cookies in your web browser.<p/>
+        <p style="font-size:13.5px;margin-top:4px">  You don't have an account because you are a fresh student, or your student record has just been created? Initialize your student account <strong class=" w3-text-purple">
+            here</strong> </p>
+        <p style="font-size:13.5px;margin-top:4px">Or simpily forget your student Id, Application Id or password? Then request a new one <strong class="w3-text-purple">here</strong></p>
+
+    </div>
+    <div class="pull-right" style="margin-right: 85px">
+        <p>KOFA - Hostel Allocation System</p>
+        <p>copyright &copy; WAeUP Group 2018</p>
+    </div>
+    <script src="Scripts/jquery-1.10.2.min.js"></script>
+
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-ui-router.js"></script>
+    <script src="user/js/hostel.js"></script>
+    <script src="user/js/controllers.js"></script>
+</body>
+</html>

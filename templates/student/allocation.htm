@@ -1,0 +1,40 @@
+﻿<div>
+    <div class="panel panel-danger w3-pale-red" ng-if="test">
+        
+        <div class="panel-body">
+            <strong>Sorry!!!</strong> you are out of Booking period 
+            <span><button type="button" ng-click="close()" class="close pull-right " data-dismiss="modal">&times;</button></span>
+        </div>
+       
+    </div>
+    <h2>Emmanuel Valentine Accommodation </h2>
+    <h3>Bookings</h3>
+    <table class="table table-striped">
+        <tr>
+            <th>Session</th>
+            <th>Booking Date</th>
+            <th>Bed space</th>
+            <th>Bed type</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>
+2015/2016
+            </td>
+            <td>
+2015/10/9 18:10:50
+            </td>
+            <td>
+Aminu Kano Block D, Room 408, Bed C (regular)
+            </td>
+            <td>
+Male
+            </td>
+            <td>
+Cleared
+            </td>
+        </tr>
+    </table>
+
+    <button class="btn btn-primary" ng-click="allocate()">Book Accommodation</button>
+</div>

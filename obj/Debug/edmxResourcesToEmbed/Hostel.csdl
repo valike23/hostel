@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="hostelModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Block">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Hostel_id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Gender">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Hostel">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Init" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="gender" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Room">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Number" Type="String" MaxLength="4" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Block_id" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Space">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Corner" Type="String" MaxLength="2" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Room_id" Type="Int32" Nullable="false" />
+    <Property Name="Student_id" Type="Int32" />
+    <Property Name="Cleared" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Firstname" Type="String" MaxLength="18" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Lastname" Type="String" MaxLength="18" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="11" FixedLength="true" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Type" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Mat_No" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Staff_id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Gender" Type="Int32" Nullable="false" />
+    <Property Name="Apply" Type="Boolean" />
+  </EntityType>
+  <EntityContainer Name="hostelEntities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Blocks" EntityType="Self.Block" />
+    <EntitySet Name="Genders" EntityType="Self.Gender" />
+    <EntitySet Name="Hostels" EntityType="Self.Hostel" />
+    <EntitySet Name="Rooms" EntityType="Self.Room" />
+    <EntitySet Name="Spaces" EntityType="Self.Space" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="Reciept" EntityType="hostelModel.Reciept" />
+  </EntityContainer>
+  <EntityType Name="Reciept">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Category" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="Ticket_number" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Payer" Type="Int32" Nullable="false" />
+    <Property Name="Amount" Type="Int32" Nullable="false" />
+    <Property Name="Ticket_created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Item" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="Level" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="Payment_date" Type="DateTime" Precision="3" />
+    <Property Name="Payment_state" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Payment_gateway" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+    <Property Name="Response_card_Number" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="Response_Description" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Response_code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Session" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

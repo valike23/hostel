@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html ng-app="hostel">
+<head>
+    <title>{{title}}</title>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/w3.css" rel="stylesheet" />
+    <link href="fonts/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet" />
+    <link href="Content/pe-icon-7-stroke.css" rel="stylesheet" />
+	<meta charset="utf-8" />
+</head>
+<body>
+    <nav class="navbar navbar-default w3-purple ">
+        <div class="container-fluid">
+            <div>
+
+                <a class="navbar-brand" ui-sref="student">UNIBEN</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Application<span class="sr-only">(current)</span></a></li>
+                    <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User data <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Application Slip</a></li>
+                        <li><a ui-sref="student.reciept">Payments</a></li>
+                        <li><a ui-sref="student.accommodation">Accommodation Data</a></li>
+                        <li><a href="#">Clearance Data</a></li>
+                        
+                        <li><a href="#">Study Course</a></li>
+                        <li><a href="#">Personal Data</a></li>
+                        
+                        <li><a href="#">History</a></li>
+                    </ul>
+                </li>
+
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Logout</a></li>
+
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <div class="body-content">
+        <ui-view></ui-view>
+    </div>
+    
+    <script src="Scripts/jquery-1.10.2.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-ui-router.js"></script>
+    <script src="user/js/hostel.js"></script>
+    <script src="user/js/controllers.js"></script>
+</body>
+</html>
